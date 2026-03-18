@@ -128,6 +128,22 @@ button:focus-visible {
   height: 0.125rem;
   background-color: currentColor;
   border-radius: 999px;
+  transform-origin: center;
+  transition:
+    transform 0.24s ease,
+    opacity 0.18s ease;
+}
+
+.site-header.menu-open .site-header__toggle-line:nth-child(1) {
+  transform: translateY(0.475rem) rotate(45deg);
+}
+
+.site-header.menu-open .site-header__toggle-line:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header.menu-open .site-header__toggle-line:nth-child(3) {
+  transform: translateY(-0.475rem) rotate(-45deg);
 }
 
 .site-header__toggle:focus-visible,
