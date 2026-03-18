@@ -295,6 +295,9 @@ button:focus-visible {
   .site-footer__list a:hover::after {
     width: 100%;
   }
+  .site-footer__list a.is-current::after {
+    width: 100%;
+  }
 }
 
 /* ---------------------------- */
