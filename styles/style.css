@@ -81,6 +81,7 @@ button:focus-visible {
   height: 4.125rem;
   background: var(--background);
   border-bottom: 2px solid var(--accent);
+  z-index: 20;
 }
 
 .site-header__inner {
@@ -136,16 +137,34 @@ button:focus-visible {
 }
 
 .site-nav {
-  display: none;
+  position: fixed;
+  top: 4.125rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 15;
+  padding: 1.5rem 1rem 2rem;
+  overflow-y: auto;
+  background: var(--background);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(100%);
+  transition:
+    opacity 0.28s ease,
+    transform 0.32s ease,
+    visibility 0s linear 0.32s;
 }
 
 .site-header.menu-open .site-nav {
-  display: block;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  padding: 2rem 1rem;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition:
+    opacity 0.28s ease,
+    transform 0.32s ease,
+    visibility 0s linear 0s;
 }
 
 .site-nav__list {
@@ -165,6 +184,10 @@ button:focus-visible {
   letter-spacing: 0.02em;
 }
 
+body.menu-open {
+  overflow: hidden;
+}
+
 /* DESKTOP LAYOUT CHANGES */
 @media (min-width: 48rem) {
   .site-header {
@@ -177,7 +200,19 @@ button:focus-visible {
   .site-nav {
     display: block;
     position: static;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
     padding: 0.5rem 0 0 0;
+    overflow: visible;
+    background: transparent;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    transition: none;
+    z-index: auto;
   }
 
   .site-nav__list {
@@ -191,6 +226,10 @@ button:focus-visible {
     padding: 0;
     font-size: 1rem;
     font-weight: 400;
+  }
+
+  body.menu-open {
+    overflow: visible;
   }
   .site-nav__list a:hover {
     color: var(--primary-hover);
