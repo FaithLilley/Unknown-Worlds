@@ -6,6 +6,9 @@
   <title>Unknown Worlds</title>
   <meta name="description" content="Unknown Worlds is ">
   <meta name="color-scheme" content="light">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles/style.css">
   <link rel="icon" type="image/png" href="./assets/favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
@@ -49,7 +52,22 @@
   <main id="main-content">
   </main>
 
-  <footer>
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__left">
+        <img src="./assets/logo/UW-logo-horiz.svg" alt="Unknown Worlds" class="site-footer__logo">
+        <p class="site-footer__copyright">
+          © 2026 Unknown Worlds Limited
+        </p>
+      </div>
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <ul class="site-footer__list">
+          <li><a href="">Accessibility</a></li>
+          <li><a href="">Privacy Policy</a></li>
+          <li><a href="">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
   </footer>
 
   <script src="./js/nav.js"></script>
