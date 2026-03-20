@@ -384,7 +384,6 @@ main {
   margin-bottom: 1rem;
   font-size: clamp(1.875rem, 8vw, 2.5rem);
   line-height: 1.08;
-  color: var(--text);
 }
 
 .hero__content p {
@@ -420,7 +419,8 @@ main {
   object-position: center;
 }
 
-.main-section {
+.main-section,
+.content-section {
   width: min(100% - 2rem, var(--site-max-width));
   margin: 0 auto;
   padding: 1.75rem 0 4rem;
@@ -519,6 +519,24 @@ main {
 .card__link:focus-visible {
   color: inherit;
   text-decoration: none;
+}
+
+.intro-section {
+  width: min(100% - 2rem, var(--site-max-width));
+  margin: 0 auto;
+  padding: 1.75rem 0 4rem;
+}
+.intro-section h1 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.875rem, 8vw, 2.5rem);
+  line-height: 1.08;
+  text-align: center;
+}
+.intro-section p {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.65;
+
 }
 
 /* DESKTOP LAYOUT CHANGES */
