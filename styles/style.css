@@ -45,6 +45,13 @@ h1 {
   font-family: var(--font-serif);
   margin: 0 0 1rem;
 }
+h2 {
+  font-size: 1.625rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin:1rem 0;
+}
+
 /* LINK STYLES */
 a {
   color: var(--text);
@@ -361,11 +368,12 @@ body.menu-open {
 }
 
 /* ---------------------------- */
-/* BODY DESIGN                  */
+/*   BODY DESIGN                */
 /* ---------------------------- */
 main {
   background: var(--background);
   display: flow-root;
+  padding-bottom: 4rem;
 }
 
 .hero {
@@ -406,7 +414,11 @@ main {
   position: absolute;
   inset: 0 0 auto;
   height: 25%;
-  background: linear-gradient(180deg, var(--background) 30%, rgba(244, 246, 243, 0.6) 60%, rgba(244, 246, 243, 0) 100%);
+  background: linear-gradient(180deg,
+    var(--background) 30%,
+    color-mix(in srgb, var(--background) 60%, transparent) 60%,
+    color-mix(in srgb, var(--background) 0%, transparent) 100%
+  );
   pointer-events: none;
   z-index: 1;
 }
@@ -419,11 +431,10 @@ main {
   object-position: center;
 }
 
-.main-section,
-.content-section {
+.main-section {
   width: min(100% - 2rem, var(--site-max-width));
   margin: 0 auto;
-  padding: 1.75rem 0 4rem;
+  padding: 1.75rem 0 1rem;
 }
 
 .main-section__intro {
@@ -452,7 +463,7 @@ main {
 
 .card {
   overflow: hidden;
-  border: 2px solid rgba(47, 52, 50, 0.16);
+  border: 2px solid color-mix(in srgb, var(--text) 16%, transparent);
   border-radius: 1.5rem;
   background: var(--background);
 }
@@ -524,22 +535,64 @@ main {
 .intro-section {
   width: min(100% - 2rem, var(--site-max-width));
   margin: 0 auto;
-  padding: 1.75rem 0 4rem;
+  padding: 1.75rem 0 0;
 }
 .intro-section h1 {
   margin-bottom: 1rem;
   font-size: clamp(1.875rem, 8vw, 2.5rem);
   line-height: 1.08;
-  text-align: center;
+  text-align: left;
 }
 .intro-section p {
   margin: 0;
   font-size: 1.125rem;
   line-height: 1.65;
-
 }
 
-/* DESKTOP LAYOUT CHANGES */
+.content-section {
+  width: min(100% - 2rem, var(--site-max-width));
+  margin: 0 auto;
+  padding: 1.5rem 0 0.5rem;
+}
+
+.content-section h2 {
+  position: relative;
+}
+
+.content-section h2::after {
+  content: "";
+  display: block;
+  width: 100%;
+  max-width: 8rem;
+  height: 2px;
+  margin-top: 0.3rem;
+  background: color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+.content-section figure {
+  max-width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.content-section img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+figcaption {
+  margin-top: 0.1rem;
+  font-size: 0.875rem;
+  line-height: 1.3;
+  color: var(--text-muted);
+  text-align: left;
+}
+
+/* ---------------------------- */
+/*   DESKTOP LAYOUT CHANGES     */
+/* ---------------------------- */
 @media (min-width: 48rem) {
   .hero {
     position: relative;
@@ -573,7 +626,12 @@ main {
     bottom: 0;
     left: calc((100vw - 100%) / -2);
     width: calc(min(50rem, 80%) + ((100vw - 100%) / 2));
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 60%, rgba(0, 0, 0, 0.42) 80%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(90deg,
+      rgba(0, 0, 0, 0.60) 0%,
+      rgba(0, 0, 0, 0.60) 60%,
+      rgba(0, 0, 0, 0.42) 80%,
+      rgba(0, 0, 0, 0) 100%
+    );
     pointer-events: none;
   }
 
@@ -640,11 +698,14 @@ main {
   }
 
   .card:hover {
-    box-shadow: 0 0.25rem 1rem 0.125rem rgba(47, 52, 50, 0.2);
+    box-shadow: 0 0.25rem 1rem 0.125rem color-mix(in srgb, var(--text) 20%, transparent);
     border-color: var(--accent);
   }
   .card:hover .card__image-wrap img,
   .card:focus-within .card__image-wrap img {
     transform: scale(1.03);
+  }
+  .intro-section h1 {
+    text-align: center;
   }
 }
