@@ -547,6 +547,7 @@ main {
   margin: 0;
   font-size: 1.125rem;
   line-height: 1.65;
+  max-width:70ch;
 }
 
 .content-section {
@@ -580,6 +581,7 @@ main {
   width: 100%;
   max-width: 100%;
   height: auto;
+  border-radius: 0.25rem;
 }
 
 figcaption {
@@ -705,7 +707,52 @@ figcaption {
   .card:focus-within .card__image-wrap img {
     transform: scale(1.03);
   }
+  .intro-section {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+  }
   .intro-section h1 {
     text-align: center;
+  }
+  .intro-section p {
+    margin: 0 auto;
+  }
+  .content-section {
+    display: grid;
+    /*gap: 1rem;*/
+    margin-block: 1rem;
+    /*grid-template-columns: 1fr 1fr;*/
+    gap: 2rem;
+    align-items: start;
+  }
+  .content-section--img-right {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+  .content-section--img-left {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+  .content-section--img-right > div {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .content-section--img-right > figure {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .content-section--img-left > div {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .content-section--img-left > figure {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .content-section h2 {
+    margin-top: 0;
+  }
+  .content-section h2::after {
+    width: 5rem;
+    margin-top: 0.6rem;
+    background: color-mix(in srgb, var(--accent) 40%, transparent);
   }
 }
