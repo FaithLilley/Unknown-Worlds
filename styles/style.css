@@ -66,6 +66,20 @@ button:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
+p a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.14em;
+  text-decoration-skip-ink: auto;
+  transition:
+    color 0.2s ease,
+    text-decoration-thickness 0.2s ease;
+}
+
+p a:hover {
+  text-decoration-thickness: 2px;
+}
 
 /* ---------------------------- */
 /* HEADER DESIGN                */
