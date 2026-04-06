@@ -5,6 +5,7 @@
   --text: #2F3432;
   --text-muted: #5F6863;
   --border: #D3D9D3;
+  --border-subtle: rgba(95, 104, 99, 0.2);
   --primary: #244036;
   --primary-hover: #2F4F42;
   --surface: #DCE4D7;
@@ -80,6 +81,21 @@ p a:hover {
   text-decoration-thickness: 2px;
 }
 
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+address {
+  font-style: normal;
+}
 /* ---------------------------- */
 /* HEADER DESIGN                */
 /* ---------------------------- */
@@ -593,6 +609,14 @@ main {
   border-radius: 0.25rem;
 }
 
+.content-section address {
+  margin-block: 1rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--border-subtle);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
 figcaption {
   margin-top: 0.1rem;
   font-size: 0.875rem;
@@ -610,6 +634,12 @@ figcaption {
 .photo-frame figcaption {
   margin-top: 0.5rem;
 }
+.img-half-size {
+  width: 50%;
+  margin-inline: auto;
+  justify-self: center;
+}
+
 
 /* ---------------------------- */
 /*   DESKTOP LAYOUT CHANGES     */
@@ -736,11 +766,11 @@ figcaption {
   .intro-section p {
     margin: 0 auto;
   }
-  .content-section {
+  /* Use grid layout if we're using an image layout */
+  .content-section--img-right,
+  .content-section--img-left {
     display: grid;
-    /*gap: 1rem;*/
     margin-block: 1rem;
-    /*grid-template-columns: 1fr 1fr;*/
     gap: 2rem;
     align-items: start;
   }
